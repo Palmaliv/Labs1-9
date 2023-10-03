@@ -34,10 +34,10 @@ int main() {
 	}
 
 	std::cout << "| " << coefficients["a1"] << "x + " << coefficients["b1"] << "y = " << coefficients["c1"] << '\n'
-			  << "| " << coefficients["a2"] << "x + " << coefficients["b2"] << "y = " << coefficients["c2"] << std::endl;
+		  << "| " << coefficients["a2"] << "x + " << coefficients["b2"] << "y = " << coefficients["c2"] << std::endl;
 
 	solveEquationSystem(coefficients["a1"], coefficients["b1"], coefficients["c1"],
-						coefficients["a2"], coefficients["b2"], coefficients["c2"]);*/
+			    coefficients["a2"], coefficients["b2"], coefficients["c2"]);*/
 	
 	test();
 }
@@ -77,20 +77,20 @@ void solveEquationSystem(float a1, float b1, float c1, float a2, float b2, float
 void test() {
 	using Coefficient = float[10];
 	Coefficient a1{ 0,  7, 17, 4,  14, 0, 0, 2, 4, 0 },
-				b1{ 2,  4,  1, 5, -12, 2, 0, 0, 4, 0 },
-				c1{ 3, -5, 24, 6,  11, 5, 7, 2, 4, 0 },
-				a2{ 0, 12,  0, 7,   5, 0, 4, 0, 4, 0 },
-				b2{ 2,  4, 12, 1,   7, 2, 5, 4, 4, 0 },
-				c2{ 3,  2,  7, 3,  -2, 6, 6, 5, 4, 0 };
+		    b1{ 2,  4,  1, 5, -12, 2, 0, 0, 4, 0 },
+		    c1{ 3, -5, 24, 6,  11, 5, 7, 2, 4, 0 },
+		    a2{ 0, 12,  0, 7,   5, 0, 4, 0, 4, 0 },
+		    b2{ 2,  4, 12, 1,   7, 2, 5, 4, 4, 0 },
+		    c2{ 3,  2,  7, 3,  -2, 6, 6, 5, 4, 0 };
 
 	Coefficient xV { NAN, 1.4, 1.37745098039216, 0.290322580645161,  0.335443037974684, NAN, NAN, 1, NAN, NAN},
-				yV { 1.5, -3.7, 0.583333333333333, 0.967741935483871,  -0.525316455696203, NAN, NAN, 1.25, NAN, NAN};
+		    yV { 1.5, -3.7, 0.583333333333333, 0.967741935483871,  -0.525316455696203, NAN, NAN, 1.25, NAN, NAN};
 
 	
 	float x, y;
 	for (int i = 0; i < std::end(a1) - std::begin(a1); i++) {
 		std::cout << "| " << a1[i] << "x + " << b1[i] << "y = " << c1[i] << '\n'
-				  << "| " << a2[i] << "x + " << b2[i] << "y = " << c2[i] << std::endl;
+			  << "| " << a2[i] << "x + " << b2[i] << "y = " << c2[i] << std::endl;
 
 		std::cout << std::setw(17) << "GetedResult: ";
 		solveEquationSystem(a1[i], b1[i], c1[i], a2[i], b2[i], c2[i]);
