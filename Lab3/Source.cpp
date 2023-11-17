@@ -2,7 +2,7 @@
 * Автор: Пушин Г.В.
 * Группа: ИТ-11(2)
 *
-* Лабораторная работа № 2
+* Лабораторная работа № 3
 * Вариант № 26
 * Задание: Напечатать треугольник Паскаля, состоящий из n строк.
 ***************************************************************************************/
@@ -37,8 +37,8 @@ void drawPascalTriangle(int n) {
 
 	int m = n / 2 + n % 2; // Количество элементов в полустроке
 	std::vector<int> line(m);
+	
 	line[0] = 1; // Инициализация первой строки
-
 	drawLine(line, 1, m);
 
 	for (size_t i = 1; i < n; i++) {
@@ -48,15 +48,10 @@ void drawPascalTriangle(int n) {
 				line[j] += line[j + 1];
 		}
 		else {
-			int temp1, temp2; // Переменные для хранение
-			temp1 = line[0];
-			line[0] *= 2;
+			for (size_t j = m - 1; j > 0; j--)
+				line[j] += line[j - 1];
 
-			for (size_t j = 1; j < m; j++) {
-				temp2 = line[j];
-				line[j] = temp1 + line[j];
-				temp1 = temp2;
-			}
+			line[0] *= 2;
 		}
 
 		drawLine(line, i + 1, m);
